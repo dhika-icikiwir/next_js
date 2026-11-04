@@ -100,10 +100,10 @@ function BiodataSheet({ className }: { className?: string }) {
       <div className="kop-rule mb-6 mt-3" aria-hidden="true" />
 
       <div className="flex items-start gap-5">
-        {/* Placeholder pas foto: ganti dengan foto asli lewat profile.photo di lib/portfolio-data.ts */}
+        {/* Gambar dari public/profile.jpg; kalau file belum ada, inisial yang tampil. */}
         <div className="flex shrink-0 flex-col items-center gap-2">
           <Avatar className="h-28 w-[5.25rem] rounded-none border border-dashed border-input">
-            {profile.photo && <AvatarImage src={profile.photo} alt={`Foto ${profile.name}`} />}
+            {profile.photo && <AvatarImage src={profile.photo} alt={profile.photoAlt} />}
             <AvatarFallback className="rounded-none bg-secondary font-serif text-2xl font-bold text-primary">
               {profile.initials}
             </AvatarFallback>

@@ -10,8 +10,10 @@ export const profile = {
   school: 'SMK Hikmah YAPIS Jayapura',
   internship: 'Pengadilan Militer V-22 Jayapura',
   location: 'Jayapura, Papua',
-  // Taruh foto di folder /public (mis. /public/profile.jpg) lalu isi: '/profile.jpg'
-  photo: '',
+  // Gambar di kotak pas foto. Upload file ke public/profile.jpg.
+  // Selama file belum ada, kotak otomatis menampilkan inisial.
+  photo: '/profile.jpg',
+  photoAlt: 'Ilustrasi Ayanokouji, karakter anime',
   tagline:
     'Pelajar RPL yang senang membangun website modern dengan Next.js, sekaligus belajar dunia kerja nyata lewat magang di lingkungan peradilan militer.',
   about: [
