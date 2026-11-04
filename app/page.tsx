@@ -61,8 +61,8 @@ export default function Page() {
 function Hero() {
   return (
     <section id="beranda" aria-labelledby="beranda-judul" className="container scroll-mt-20 py-14 md:py-24">
-      <div className="grid items-center gap-12 md:grid-cols-12">
-        <div className="md:col-span-7">
+      <div className="grid items-center gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-7">
           <p className="mb-4 text-muted-foreground">Portofolio · {profile.location}</p>
           <h1 id="beranda-judul" className="font-serif text-5xl font-bold leading-tight sm:text-6xl">
             {profile.name}
@@ -85,33 +85,24 @@ function Hero() {
           </div>
         </div>
 
-        <BiodataSheet className="md:col-span-5" />
+        <BiodataSheet className="lg:col-span-5" />
       </div>
     </section>
   );
 }
 
 function BiodataSheet({ className }: { className?: string }) {
+  const [, kelas, ...details] = biodata;
+
   return (
-    <figure
-      className={cn('rounded-sm border bg-card p-6 shadow-md sm:p-8', className)}
-    >
+    <figure className={cn('w-full max-w-xl rounded-sm border bg-card p-5 shadow-md sm:p-8', className)}>
       <figcaption className="text-center font-serif text-lg font-bold">Lembar Biodata Siswa</figcaption>
       <div className="kop-rule mb-6 mt-3" aria-hidden="true" />
 
-      <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-start">
-        <dl className="min-w-0 flex-1 space-y-3 text-sm">
-          {biodata.map((row) => (
-            <div key={row.label} className="grid grid-cols-[7.5rem_1fr] gap-2">
-              <dt className="text-muted-foreground">{row.label}</dt>
-              <dd className="min-w-0 break-words font-medium">{row.value}</dd>
-            </div>
-          ))}
-        </dl>
-
+      <div className="flex items-start gap-5">
         {/* Placeholder pas foto: ganti dengan foto asli lewat profile.photo di lib/portfolio-data.ts */}
-        <div className="flex shrink-0 flex-col items-center gap-2 self-center sm:self-start">
-          <Avatar className="h-32 w-24 rounded-none border border-dashed border-input">
+        <div className="flex shrink-0 flex-col items-center gap-2">
+          <Avatar className="h-28 w-[5.25rem] rounded-none border border-dashed border-input">
             {profile.photo && <AvatarImage src={profile.photo} alt={`Foto ${profile.name}`} />}
             <AvatarFallback className="rounded-none bg-secondary font-serif text-2xl font-bold text-primary">
               {profile.initials}
@@ -119,7 +110,27 @@ function BiodataSheet({ className }: { className?: string }) {
           </Avatar>
           <span className="text-xs text-muted-foreground">Pas foto 3×4</span>
         </div>
+
+        <dl className="min-w-0 space-y-3">
+          <div>
+            <dt className="text-sm text-muted-foreground">Nama</dt>
+            <dd className="font-serif text-xl font-bold">{profile.name}</dd>
+          </div>
+          <div>
+            <dt className="text-sm text-muted-foreground">{kelas.label}</dt>
+            <dd className="font-medium">{kelas.value}</dd>
+          </div>
+        </dl>
       </div>
+
+      <dl className="mt-6 space-y-3 border-t pt-5 text-sm">
+        {details.map((row) => (
+          <div key={row.label} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8rem_minmax(0,1fr)]">
+            <dt className="text-muted-foreground">{row.label}</dt>
+            <dd className="font-medium">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
     </figure>
   );
 }
