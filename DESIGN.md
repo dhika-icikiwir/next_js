@@ -1,0 +1,23 @@
+# DESIGN.md: Portofolio Adhika Dipta
+
+Arah desain untuk halaman portofolio (`app/page.tsx`). Dibaca sebelum skill `/antislop`.
+
+**Design Read:** portofolio pribadi siswa SMK untuk guru penilai, pembimbing magang, dan calon pemberi kerja, dengan bahasa visual "dokumen resmi" (lembar biodata, kop surat) yang diambil dari pengalaman magang di instansi.
+
+Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+
+## Alasan setiap keputusan (R-31)
+
+- **Warna:** kertas hangat (`--background`) + hijau tentara (`--primary`) karena tempat magangnya peradilan militer; kuningan (`--brass`) jadi satu-satunya aksen, hanya untuk garis kop surat.
+- **Tipografi:** Lusitana (serif) untuk judul supaya terasa seperti surat resmi; Plus Jakarta Sans untuk teks karena huruf ini dirancang untuk identitas kota Jakarta, cocok untuk siswa Indonesia.
+- **Motif identitas:** garis ganda kop surat (`.kop-rule`) dan lembar biodata dengan kotak "pas foto 3×4", seperti formulir sekolah.
+- **Layout:** tiap section punya komposisi berbeda (biodata 2 kolom, tentang judul-kiri/teks-kanan, timeline baris tabel, keahlian 2 kolom, proyek utama besar + kecil, kontak berbentuk surat).
+- **Shadow:** hanya di lembar biodata dan surat kontak, karena keduanya "kertas" yang diletakkan di atas halaman.
+- **Ikon:** hanya Mail dan GitHub di tombol kontak (menjelaskan tujuan tombol), plus ikon kontrol (menu, tema, tutup).
+- **Gerak:** hanya efek hover dan scroll halus; dimatikan saat `prefers-reduced-motion`.
+- **Tema:** terang dan gelap sama-sama didukung lewat tombol di navbar.
+
+## Placeholder yang perlu diganti pemilik
+
+- Foto: kotak "pas foto 3×4" masih berisi inisial. Isi `photo` di `lib/portfolio-data.ts`.
+- Periode dan tugas magang, tahun sekolah: cek ulang di `lib/portfolio-data.ts`.
