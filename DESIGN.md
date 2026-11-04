@@ -4,7 +4,7 @@ Arah desain untuk halaman portofolio (`app/page.tsx`). Dibaca sebelum skill `/an
 
 **Design Read:** portofolio pribadi siswa SMK untuk guru penilai, pembimbing magang, dan calon pemberi kerja, dengan bahasa visual "dokumen resmi" (lembar biodata, kop surat) yang diambil dari pengalaman magang di instansi.
 
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
 
 ## Alasan setiap keputusan (R-31)
 
@@ -14,10 +14,15 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
 - **Layout:** tiap section punya komposisi berbeda (biodata 2 kolom, tentang judul-kiri/teks-kanan, timeline baris tabel, keahlian 2 kolom, proyek utama besar + kecil, kontak berbentuk surat).
 - **Shadow:** hanya di lembar biodata dan surat kontak, karena keduanya "kertas" yang diletakkan di atas halaman.
 - **Ikon:** hanya Mail dan GitHub di tombol kontak (menjelaskan tujuan tombol), plus ikon kontrol (menu, tema, tutup).
-- **Gerak:** hanya efek hover dan scroll halus; dimatikan saat `prefers-reduced-motion`.
+- **Gerak (Magic UI, `components/magicui`):** semua efek mati saat `prefers-reduced-motion`.
+  - *Blur Fade:* isi tiap bagian muncul sekali saat di-scroll, supaya mata mengikuti urutan baca. Tidak dipakai di judul utama agar halaman tetap cepat tampil.
+  - *Highlighter:* garis bawah kuningan seperti coretan pena di nama tempat magang, satu-satunya penekanan di hero.
+  - *Scroll Progress:* garis kuningan di atas layar, kelanjutan motif kop surat, menunjukkan posisi baca di halaman panjang.
+  - *Magic Card:* sorotan halus hijau-kuningan di kartu proyek, menandai kartu yang bisa diklik.
+  - *Animated Theme Toggler:* lingkaran yang melebar dari tombol tema, sebagai umpan balik saat tema berganti.
+  - Tidak dipakai: efek berulang tanpa henti (border beam, marquee, sparkles), karena tidak punya fungsi.
 - **Tema:** terang dan gelap sama-sama didukung lewat tombol di navbar.
 
 ## Placeholder yang perlu diganti pemilik
 
-- Foto: kotak "pas foto 3×4" masih berisi inisial. Isi `photo` di `lib/portfolio-data.ts`.
 - Periode dan tugas magang, tahun sekolah: cek ulang di `lib/portfolio-data.ts`.

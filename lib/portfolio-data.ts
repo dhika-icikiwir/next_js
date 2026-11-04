@@ -97,8 +97,8 @@ export const projects: Project[] = [
   {
     title: 'Website Portofolio Pribadi',
     description:
-      'Website yang sedang kamu lihat sekarang. Dibangun dengan Next.js dan komponen shadcn/ui, mendukung mode gelap, responsif di HP, dan di-deploy di Vercel.',
-    tags: ['Next.js', 'shadcn/ui', 'Tailwind CSS', 'Vercel'],
+      'Website yang sedang kamu lihat sekarang. Dibangun dengan Next.js, komponen shadcn/ui, dan animasi Magic UI. Mendukung mode gelap, responsif di HP, dan di-deploy di Vercel.',
+    tags: ['Next.js', 'shadcn/ui', 'Magic UI', 'Vercel'],
     repo: 'https://github.com/dhika-icikiwir/next_js',
   },
 ];
