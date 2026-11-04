@@ -2,6 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Kertas hangat + hijau loreng + kuningan sebagai satu-satunya aksen. */
+  :root {
+    --background: 45 29% 95%;
+    --foreground: 100 13% 11%;
+    --card: 45 33% 98%;
+    --card-foreground: 100 13% 11%;
+    --popover: 45 33% 98%;
+    --popover-foreground: 100 13% 11%;
+    --primary: 100 32% 27%;
+    --primary-foreground: 45 33% 98%;
+    --secondary: 60 14% 90%;
+    --secondary-foreground: 100 13% 11%;
+    --muted: 60 14% 90%;
+    --muted-foreground: 90 6% 34%;
+    --accent: 75 20% 88%;
+    --accent-foreground: 100 13% 11%;
+    --destructive: 0 65% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 60 10% 80%;
+    --input: 60 10% 70%;
+    --ring: 100 32% 27%;
+    --brass: 38 62% 33%;
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: 90 14% 7%;
+    --foreground: 60 12% 91%;
+    --card: 90 12% 10%;
+    --card-foreground: 60 12% 91%;
+    --popover: 90 12% 10%;
+    --popover-foreground: 60 12% 91%;
+    --primary: 95 30% 63%;
+    --primary-foreground: 90 14% 7%;
+    --secondary: 90 10% 15%;
+    --secondary-foreground: 60 12% 91%;
+    --muted: 90 10% 15%;
+    --muted-foreground: 70 8% 68%;
+    --accent: 90 10% 17%;
+    --accent-foreground: 60 12% 91%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 90 14% 7%;
+    --border: 90 8% 22%;
+    --input: 90 8% 32%;
+    --ring: 95 30% 63%;
+    --brass: 40 60% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  a[href],
+  button:not(:disabled),
+  summary,
+  label[for],
+  [role='button'],
+  [role='tab'],
+  [role='switch'] {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Garis ganda ala kop surat: motif identitas halaman. */
+.kop-rule {
+  border-top: 3px solid hsl(var(--brass));
+  border-bottom: 1px solid hsl(var(--brass));
+  height: 7px;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;

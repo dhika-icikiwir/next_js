@@ -1,8 +1,11 @@
 import SideNav from "../ui/dashboard/sidenav";
 
+// Data dashboard diambil dari database saat request, jadi jangan di-prerender saat build.
+export const dynamic = 'force-dynamic';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+        <div className="flex h-screen flex-col bg-white text-gray-900 md:flex-row md:overflow-hidden">
             <div className="w-full flex-none md:w-64">
                 <SideNav />
             </div>
