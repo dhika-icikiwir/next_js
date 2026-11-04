@@ -85,6 +85,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-blur-fade] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
   *,
   *::before,
   *::after {
@@ -113,4 +118,10 @@ input[type='number']::-webkit-inner-spin-button {
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+/* Animasi lingkaran tombol tema (Magic UI) memakai View Transitions API. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

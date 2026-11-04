@@ -4,7 +4,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { BlurFade } from '@/components/magicui/blur-fade';
+import { MagicCard } from '@/components/magicui/magic-card';
+import { ScrollProgress } from '@/components/magicui/scroll-progress';
 import { GithubIcon } from '@/components/portfolio/github-icon';
+import { InternHighlight } from '@/components/portfolio/intern-highlight';
 import { Navbar } from '@/components/portfolio/navbar';
 import { SectionHeading } from '@/components/portfolio/section-heading';
 import {
@@ -35,6 +39,7 @@ export default function Page() {
       >
         Langsung ke isi halaman
       </a>
+      <ScrollProgress />
       <Navbar />
 
       <main id="isi" className="flex-1">
@@ -51,7 +56,7 @@ export default function Page() {
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>
-          <p>Dibuat dengan Next.js dan shadcn/ui</p>
+          <p>Dibuat dengan Next.js, shadcn/ui, dan Magic UI</p>
         </div>
       </footer>
     </div>
@@ -69,8 +74,10 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed">
             Siswa kelas XII Rekayasa Perangkat Lunak di {profile.school}. Sekarang sedang magang di{' '}
-            <span className="font-semibold text-primary">{profile.internship}</span>, sambil terus
-            belajar membangun website dengan Next.js.
+            <span className="font-semibold text-primary">
+              <InternHighlight>{profile.internship}</InternHighlight>
+            </span>
+            , sambil terus belajar membangun website dengan Next.js.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button className="h-11 px-6 text-base" asChild>
@@ -85,7 +92,9 @@ function Hero() {
           </div>
         </div>
 
-        <BiodataSheet className="lg:col-span-5" />
+        <BlurFade className="lg:col-span-5" direction="up" offset={16} delay={0.15}>
+          <BiodataSheet />
+        </BlurFade>
       </div>
     </section>
   );
@@ -102,7 +111,12 @@ function BiodataSheet({ className }: { className?: string }) {
       <div className="flex items-start gap-5">
         {/* Gambar dari public/profile.jpg; kalau file belum ada, inisial yang tampil. */}
         <div className="flex shrink-0 flex-col items-center gap-2">
-          <Avatar className={cn('h-28 w-[5.25rem] rounded-none border border-input', !profile.photo && 'border-dashed')}>
+          <Avatar
+            className={cn(
+              'h-28 w-[5.25rem] rounded-none border border-input',
+              !profile.photo && 'border-dashed',
+            )}
+          >
             {profile.photo && <AvatarImage src={profile.photo} alt={profile.photoAlt} />}
             <AvatarFallback className="rounded-none bg-secondary font-serif text-2xl font-bold text-primary">
               {profile.initials}
@@ -125,7 +139,10 @@ function BiodataSheet({ className }: { className?: string }) {
 
       <dl className="mt-6 space-y-3 border-t pt-5 text-sm">
         {details.map((row) => (
-          <div key={row.label} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8rem_minmax(0,1fr)]">
+          <div
+            key={row.label}
+            className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8rem_minmax(0,1fr)]"
+          >
             <dt className="text-muted-foreground">{row.label}</dt>
             <dd className="font-medium">{row.value}</dd>
           </div>
@@ -139,12 +156,14 @@ function About() {
   return (
     <section id="tentang" aria-labelledby="tentang-judul" className="scroll-mt-20 border-t bg-card/60">
       <div className="container grid gap-6 py-16 md:grid-cols-12 md:py-20">
-        <div className="md:col-span-4">
+        <BlurFade inView className="md:col-span-4">
           <SectionHeading id="tentang-judul" title="Tentang Saya" />
-        </div>
+        </BlurFade>
         <div className="max-w-prose space-y-4 text-lg leading-relaxed md:col-span-8">
-          {profile.about.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {profile.about.map((paragraph, i) => (
+            <BlurFade key={paragraph} inView delay={0.1 + i * 0.1}>
+              <p>{paragraph}</p>
+            </BlurFade>
           ))}
         </div>
       </div>
@@ -154,12 +173,18 @@ function About() {
 
 function Experience() {
   return (
-    <section id="pengalaman" aria-labelledby="pengalaman-judul" className="container scroll-mt-20 py-16 md:py-20">
-      <SectionHeading
-        id="pengalaman-judul"
-        title="Pengalaman & Pendidikan"
-        lead="Tempat saya belajar sekarang, di kelas dan di dunia kerja."
-      />
+    <section
+      id="pengalaman"
+      aria-labelledby="pengalaman-judul"
+      className="container scroll-mt-20 py-16 md:py-20"
+    >
+      <BlurFade inView>
+        <SectionHeading
+          id="pengalaman-judul"
+          title="Pengalaman & Pendidikan"
+          lead="Tempat saya belajar sekarang, di kelas dan di dunia kerja."
+        />
+      </BlurFade>
 
       <h3 className="mb-2 text-sm font-semibold text-muted-foreground">Pengalaman</h3>
       <Timeline items={experience} />
@@ -174,22 +199,24 @@ function Timeline({ items }: { items: TimelineItem[] }) {
   return (
     <ol className="divide-y border-y">
       {items.map((item) => (
-        <li key={item.title + item.place} className="grid gap-2 py-6 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-4">
-            <p className="font-semibold">{item.place}</p>
-            <p className="text-sm text-muted-foreground">{item.period}</p>
-          </div>
-          <div className="md:col-span-8">
-            <p className="font-serif text-xl font-bold">{item.title}</p>
-            <p className="mt-2 leading-relaxed">{item.description}</p>
-            {item.points && (
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-muted-foreground marker:text-primary">
-                {item.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+        <li key={item.title + item.place}>
+          <BlurFade inView className="grid gap-2 py-6 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-4">
+              <p className="font-semibold">{item.place}</p>
+              <p className="text-sm text-muted-foreground">{item.period}</p>
+            </div>
+            <div className="md:col-span-8">
+              <p className="font-serif text-xl font-bold">{item.title}</p>
+              <p className="mt-2 leading-relaxed">{item.description}</p>
+              {item.points && (
+                <ul className="mt-3 list-disc space-y-1.5 pl-5 text-muted-foreground marker:text-primary">
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </BlurFade>
         </li>
       ))}
     </ol>
@@ -200,14 +227,16 @@ function Skills() {
   return (
     <section id="keahlian" aria-labelledby="keahlian-judul" className="scroll-mt-20 border-t bg-card/60">
       <div className="container py-16 md:py-20">
-        <SectionHeading
-          id="keahlian-judul"
-          title="Keahlian"
-          lead="Teknologi yang saya pelajari di sekolah dan saya pakai untuk proyek sendiri."
-        />
+        <BlurFade inView>
+          <SectionHeading
+            id="keahlian-judul"
+            title="Keahlian"
+            lead="Teknologi yang saya pelajari di sekolah dan saya pakai untuk proyek sendiri."
+          />
+        </BlurFade>
         <div className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
-          {skillGroups.map((group) => (
-            <div key={group.title}>
+          {skillGroups.map((group, i) => (
+            <BlurFade key={group.title} inView delay={i * 0.08}>
               <h3 className="font-semibold">{group.title}</h3>
               <Separator className="my-3" />
               <ul className="flex flex-wrap gap-2">
@@ -219,7 +248,7 @@ function Skills() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </BlurFade>
           ))}
         </div>
       </div>
@@ -232,11 +261,13 @@ function Projects() {
 
   return (
     <section id="proyek" aria-labelledby="proyek-judul" className="container scroll-mt-20 py-16 md:py-20">
-      <SectionHeading
-        id="proyek-judul"
-        title="Proyek"
-        lead="Proyek yang kodenya bisa kamu lihat langsung di GitHub."
-      />
+      <BlurFade inView>
+        <SectionHeading
+          id="proyek-judul"
+          title="Proyek"
+          lead="Proyek yang kodenya bisa kamu lihat langsung di GitHub."
+        />
+      </BlurFade>
 
       {!featured ? (
         <p className="rounded-md border border-dashed p-8 text-center text-muted-foreground">
@@ -244,22 +275,30 @@ function Projects() {
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-5">
-          <article className="flex flex-col rounded-md border bg-card p-6 sm:p-8 md:col-span-3">
-            <h3 className="font-serif text-2xl font-bold">{featured.title}</h3>
-            <p className="mt-3 flex-1 leading-relaxed">{featured.description}</p>
-            <ProjectTags tags={featured.tags} />
-            <ProjectLinks project={featured} />
-          </article>
+          <BlurFade inView className="md:col-span-3">
+            <MagicCard className="h-full rounded-md">
+              <article className="flex h-full flex-col p-6 sm:p-8">
+                <h3 className="font-serif text-2xl font-bold">{featured.title}</h3>
+                <p className="mt-3 flex-1 leading-relaxed">{featured.description}</p>
+                <ProjectTags tags={featured.tags} />
+                <ProjectLinks project={featured} />
+              </article>
+            </MagicCard>
+          </BlurFade>
 
           {others.length > 0 && (
             <div className="flex flex-col gap-6 md:col-span-2">
-              {others.map((project) => (
-                <article key={project.title} className="flex flex-1 flex-col rounded-md border p-6">
-                  <h3 className="font-serif text-xl font-bold">{project.title}</h3>
-                  <p className="mt-2 flex-1 text-muted-foreground">{project.description}</p>
-                  <ProjectTags tags={project.tags} />
-                  <ProjectLinks project={project} />
-                </article>
+              {others.map((project, i) => (
+                <BlurFade key={project.title} inView delay={0.1 + i * 0.1} className="flex flex-1 flex-col">
+                  <MagicCard className="flex-1 rounded-md">
+                    <article className="flex h-full flex-col p-6">
+                      <h3 className="font-serif text-xl font-bold">{project.title}</h3>
+                      <p className="mt-2 flex-1 text-muted-foreground">{project.description}</p>
+                      <ProjectTags tags={project.tags} />
+                      <ProjectLinks project={project} />
+                    </article>
+                  </MagicCard>
+                </BlurFade>
               ))}
             </div>
           )}
@@ -311,14 +350,19 @@ function Contact() {
   return (
     <section id="kontak" aria-labelledby="kontak-judul" className="scroll-mt-20 border-t bg-card/60">
       <div className="container py-16 md:py-24">
-        <div className="mx-auto max-w-2xl rounded-sm border bg-card p-6 shadow-md sm:p-10">
+        <BlurFade
+          inView
+          offset={16}
+          direction="up"
+          className="mx-auto max-w-2xl rounded-sm border bg-card p-6 shadow-md sm:p-10"
+        >
           <div className="kop-rule mb-8" aria-hidden="true" />
           <h2 id="kontak-judul" className="font-serif text-3xl font-bold sm:text-4xl">
             Mari Terhubung
           </h2>
           <p className="mt-4 text-lg leading-relaxed">
-            Saya terbuka untuk tawaran magang, kerja sama proyek, atau sekadar diskusi soal web.
-            Cara paling cepat menghubungi saya adalah lewat email.
+            Saya terbuka untuk tawaran magang, kerja sama proyek, atau sekadar diskusi soal web. Cara paling
+            cepat menghubungi saya adalah lewat email.
           </p>
 
           <dl className="mt-6 space-y-2 text-sm">
@@ -355,7 +399,7 @@ function Contact() {
             <p className="text-muted-foreground">Hormat saya,</p>
             <p className="mt-6 font-serif text-2xl font-bold">{profile.name}</p>
           </div>
-        </div>
+        </BlurFade>
       </div>
     </section>
   );

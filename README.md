@@ -1,6 +1,6 @@
 # Portofolio Adhika Dipta
 
-Website portofolio Adhika Dipta, siswa XII RPL SMK Hikmah YAPIS Jayapura yang sedang magang di Pengadilan Militer V-22 Jayapura. Dibuat dengan Next.js, Tailwind CSS, dan shadcn/ui.
+Website portofolio Adhika Dipta, siswa XII RPL SMK Hikmah YAPIS Jayapura yang sedang magang di Pengadilan Militer V-22 Jayapura. Dibuat dengan Next.js, Tailwind CSS, shadcn/ui, dan animasi dari [Magic UI](https://magicui.design) (MIT, disalin dan disesuaikan di `components/magicui`).
 
 ## Menjalankan di komputer
 
