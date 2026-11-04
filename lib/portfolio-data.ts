@@ -13,7 +13,7 @@ export const profile = {
   // Gambar di kotak pas foto. Upload file ke public/profile.jpg.
   // Selama file belum ada, kotak otomatis menampilkan inisial.
   photo: '/profile.jpg',
-  photoAlt: 'Ilustrasi Ayanokouji, karakter anime',
+  photoAlt: 'Kucing putih berbaret, berkacamata, dan bersyal sambil memegang cangkir kopi',
   tagline:
     'Pelajar RPL yang senang membangun website modern dengan Next.js, sekaligus belajar dunia kerja nyata lewat magang di lingkungan peradilan militer.',
   about: [

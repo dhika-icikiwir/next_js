@@ -102,7 +102,7 @@ function BiodataSheet({ className }: { className?: string }) {
       <div className="flex items-start gap-5">
         {/* Gambar dari public/profile.jpg; kalau file belum ada, inisial yang tampil. */}
         <div className="flex shrink-0 flex-col items-center gap-2">
-          <Avatar className="h-28 w-[5.25rem] rounded-none border border-dashed border-input">
+          <Avatar className={cn('h-28 w-[5.25rem] rounded-none border border-input', !profile.photo && 'border-dashed')}>
             {profile.photo && <AvatarImage src={profile.photo} alt={profile.photoAlt} />}
             <AvatarFallback className="rounded-none bg-secondary font-serif text-2xl font-bold text-primary">
               {profile.initials}
