@@ -28,7 +28,7 @@ const biodata = [
   { label: 'Nama', value: profile.name },
   { label: 'Kelas', value: profile.role },
   { label: 'Sekolah', value: profile.school },
-  { label: 'Tempat magang', value: profile.internship },
+  { label: 'Tempat PKL', value: profile.internship },
   { label: 'Domisili', value: profile.location },
   { label: 'Minat', value: 'Pengembangan web' },
 ];
@@ -79,7 +79,7 @@ function Hero() {
             className="min-h-[2.5em] font-serif text-5xl font-bold leading-tight sm:min-h-[1.25em] sm:text-6xl"
           />
           <p className="mt-6 max-w-xl text-lg leading-relaxed">
-            Siswa kelas XII Rekayasa Perangkat Lunak di {profile.school}. Sekarang sedang magang di{' '}
+            Siswa kelas XII Rekayasa Perangkat Lunak di {profile.school}. Sekarang sedang PKL di{' '}
             <span className="font-semibold text-primary">
               <InternHighlight>{profile.internship}</InternHighlight>
             </span>
@@ -373,7 +373,7 @@ function Contact() {
             Mari Terhubung
           </h2>
           <p className="mt-4 text-lg leading-relaxed">
-            Saya terbuka untuk tawaran magang, kerja sama proyek, atau sekadar diskusi soal web. Cara paling
+            Saya terbuka untuk kerja sama proyek, kesempatan belajar, atau sekadar diskusi soal web. Cara paling
             cepat menghubungi saya adalah lewat email.
           </p>
 
