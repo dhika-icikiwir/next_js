@@ -15,10 +15,10 @@ export const profile = {
   photo: '/profile.jpg',
   photoAlt: 'Kucing putih berbaret, berkacamata, dan bersyal sambil memegang cangkir kopi',
   tagline:
-    'Pelajar RPL yang senang membangun website modern dengan Next.js, sekaligus belajar dunia kerja nyata lewat magang di lingkungan peradilan militer.',
+    'Pelajar RPL yang senang membangun website modern dengan Next.js, sekaligus belajar dunia kerja nyata lewat PKL di lingkungan peradilan militer.',
   about: [
     'Halo! Saya Adhika Dipta, siswa kelas XII jurusan Rekayasa Perangkat Lunak (RPL) di SMK Hikmah YAPIS Jayapura. Saya tertarik pada pengembangan web, terutama membuat tampilan yang rapi, cepat, dan mudah digunakan.',
-    'Saat ini saya menjalani magang (Praktik Kerja Lapangan) di Pengadilan Militer V-22 Jayapura. Di sana saya belajar disiplin, tanggung jawab, dan bagaimana teknologi membantu pekerjaan administrasi di sebuah instansi.',
+    'Saat ini saya menjalani PKL (Praktik Kerja Lapangan) di Pengadilan Militer V-22 Jayapura. Di sana saya belajar disiplin, tanggung jawab, dan bagaimana teknologi membantu pekerjaan administrasi di sebuah instansi.',
   ],
   // Teks di judul utama yang bergantian diketik dan dihapus (nama dulu, lalu peran).
   headlineRoles: ['Siswa XII RPL', 'Frontend Developer'],
@@ -37,11 +37,11 @@ export type TimelineItem = {
 
 export const experience: TimelineItem[] = [
   {
-    title: 'Magang / Praktik Kerja Lapangan (PKL)',
+    title: 'Praktik Kerja Lapangan (PKL)',
     place: 'Pengadilan Militer V-22 Jayapura',
     period: '2026 - sekarang',
     description:
-      'Menjalani program magang sebagai bagian dari kurikulum SMK, membantu pekerjaan administrasi dan teknologi informasi di kantor.',
+      'Menjalani program PKL sebagai bagian dari kurikulum SMK, membantu pekerjaan administrasi dan teknologi informasi di kantor.',
     points: [
       'Membantu input dan pengolahan data administrasi menggunakan komputer.',
       'Membantu pengarsipan dan penataan dokumen kantor.',

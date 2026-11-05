@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 export const metadata: Metadata = {
   title: 'Adhika Dipta | Portofolio',
   description:
-    'Portofolio Adhika Dipta, siswa XII RPL SMK Hikmah YAPIS Jayapura yang magang di Pengadilan Militer V-22 Jayapura.',
+    'Portofolio Adhika Dipta, siswa XII RPL SMK Hikmah YAPIS Jayapura yang sedang PKL di Pengadilan Militer V-22 Jayapura.',
 };
 
 export const viewport: Viewport = {
