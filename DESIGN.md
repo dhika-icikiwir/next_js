@@ -21,7 +21,7 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
   - *Magic Card:* sorotan halus hijau-kuningan di kartu proyek, menandai kartu yang bisa diklik.
   - *Animated Theme Toggler:* lingkaran yang melebar dari tombol tema, sebagai umpan balik saat tema berganti.
 - **Gerak (GSAP, `components/gsap`):** juga mati saat `prefers-reduced-motion`.
-  - *Mesin ketik (SplitText):* nama di hero diketik huruf demi huruf sekali saat halaman dibuka, menguatkan nuansa dokumen. Pembaca layar tetap membaca "Adhika Dipta" utuh.
+  - *Mesin ketik (SplitText):* nama di hero diketik, ditahan, dihapus pelan-pelan, lalu diketik lagi, berulang terus atas permintaan pemilik (pengecualian tercatat untuk R-19). Sesuai R-39 ada tombol jeda di samping nama. Pembaca layar tetap membaca "Adhika Dipta" utuh.
   - *Garis linimasa (ScrollTrigger, scrub):* garis hijau di kiri Pengalaman & Pendidikan tergambar mengikuti scroll, supaya urutan waktu terbaca sebagai satu alur. Garis ini membawa informasi (urutan), bukan hiasan.
   - *Kop surat (ScrollTrigger):* garis kop di surat kontak tergambar dari kiri ke kanan sekali saat terlihat.
   - Tidak dipakai: efek berulang tanpa henti (border beam, marquee, sparkles), karena tidak punya fungsi. Parallax dan pin section juga tidak dipakai karena berat di HP.
