@@ -4,6 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { KopRuleDraw } from '@/components/gsap/kop-rule-draw';
+import { TimelineRail } from '@/components/gsap/timeline-rail';
+import { TypewriterHeading } from '@/components/gsap/typewriter-heading';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { ScrollProgress } from '@/components/magicui/scroll-progress';
@@ -56,7 +59,7 @@ export default function Page() {
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>
-          <p>Dibuat dengan Next.js, shadcn/ui, dan Magic UI</p>
+          <p>Dibuat dengan Next.js, shadcn/ui, Magic UI, dan GSAP</p>
         </div>
       </footer>
     </div>
@@ -69,9 +72,12 @@ function Hero() {
       <div className="grid items-center gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <p className="mb-4 text-muted-foreground">Portofolio · {profile.location}</p>
-          <h1 id="beranda-judul" className="font-serif text-5xl font-bold leading-tight sm:text-6xl">
+          <TypewriterHeading
+            id="beranda-judul"
+            className="font-serif text-5xl font-bold leading-tight sm:text-6xl"
+          >
             {profile.name}
-          </h1>
+          </TypewriterHeading>
           <p className="mt-6 max-w-xl text-lg leading-relaxed">
             Siswa kelas XII Rekayasa Perangkat Lunak di {profile.school}. Sekarang sedang magang di{' '}
             <span className="font-semibold text-primary">
@@ -186,11 +192,13 @@ function Experience() {
         />
       </BlurFade>
 
-      <h3 className="mb-2 text-sm font-semibold text-muted-foreground">Pengalaman</h3>
-      <Timeline items={experience} />
+      <TimelineRail>
+        <h3 className="mb-2 text-sm font-semibold text-muted-foreground">Pengalaman</h3>
+        <Timeline items={experience} />
 
-      <h3 className="mb-2 mt-12 text-sm font-semibold text-muted-foreground">Pendidikan</h3>
-      <Timeline items={education} />
+        <h3 className="mb-2 mt-12 text-sm font-semibold text-muted-foreground">Pendidikan</h3>
+        <Timeline items={education} />
+      </TimelineRail>
     </section>
   );
 }
@@ -199,7 +207,11 @@ function Timeline({ items }: { items: TimelineItem[] }) {
   return (
     <ol className="divide-y border-y">
       {items.map((item) => (
-        <li key={item.title + item.place}>
+        <li key={item.title + item.place} className="relative">
+          <span
+            aria-hidden="true"
+            className="absolute -left-[25px] top-8 h-[9px] w-[9px] rounded-full border-2 border-primary bg-background md:-left-[41px]"
+          />
           <BlurFade inView className="grid gap-2 py-6 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-4">
               <p className="font-semibold">{item.place}</p>
@@ -356,7 +368,7 @@ function Contact() {
           direction="up"
           className="mx-auto max-w-2xl rounded-sm border bg-card p-6 shadow-md sm:p-10"
         >
-          <div className="kop-rule mb-8" aria-hidden="true" />
+          <KopRuleDraw className="mb-8" />
           <h2 id="kontak-judul" className="font-serif text-3xl font-bold sm:text-4xl">
             Mari Terhubung
           </h2>

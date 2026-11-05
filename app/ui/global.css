@@ -125,3 +125,17 @@ input[type='number']::-webkit-outer-spin-button {
   animation: none;
   mix-blend-mode: normal;
 }
+
+/* Judul mesin ketik (GSAP): disembunyikan sampai animasi siap, supaya tidak berkedip.
+   Kalau JS gagal, animasi CSS ini menampilkannya lagi setelah 1,5 detik. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-typewriter] {
+    visibility: hidden;
+    animation: typewriter-fallback 0s linear 1.5s forwards;
+  }
+}
+@keyframes typewriter-fallback {
+  to {
+    visibility: visible;
+  }
+}

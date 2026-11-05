@@ -20,7 +20,11 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
   - *Scroll Progress:* garis kuningan di atas layar, kelanjutan motif kop surat, menunjukkan posisi baca di halaman panjang.
   - *Magic Card:* sorotan halus hijau-kuningan di kartu proyek, menandai kartu yang bisa diklik.
   - *Animated Theme Toggler:* lingkaran yang melebar dari tombol tema, sebagai umpan balik saat tema berganti.
-  - Tidak dipakai: efek berulang tanpa henti (border beam, marquee, sparkles), karena tidak punya fungsi.
+- **Gerak (GSAP, `components/gsap`):** juga mati saat `prefers-reduced-motion`.
+  - *Mesin ketik (SplitText):* nama di hero diketik huruf demi huruf sekali saat halaman dibuka, menguatkan nuansa dokumen. Pembaca layar tetap membaca "Adhika Dipta" utuh.
+  - *Garis linimasa (ScrollTrigger, scrub):* garis hijau di kiri Pengalaman & Pendidikan tergambar mengikuti scroll, supaya urutan waktu terbaca sebagai satu alur. Garis ini membawa informasi (urutan), bukan hiasan.
+  - *Kop surat (ScrollTrigger):* garis kop di surat kontak tergambar dari kiri ke kanan sekali saat terlihat.
+  - Tidak dipakai: efek berulang tanpa henti (border beam, marquee, sparkles), karena tidak punya fungsi. Parallax dan pin section juga tidak dipakai karena berat di HP.
 - **Tema:** terang dan gelap sama-sama didukung lewat tombol di navbar.
 
 ## Placeholder yang perlu diganti pemilik

@@ -18,11 +18,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="id"
-      className={`${jakarta.variable} ${lusitana.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="id" className={`${jakarta.variable} ${lusitana.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Menandai bahwa JS aktif, dipakai CSS judul mesin ketik (GSAP). */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
