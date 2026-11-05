@@ -20,6 +20,8 @@ export const profile = {
     'Halo! Saya Adhika Dipta, siswa kelas XII jurusan Rekayasa Perangkat Lunak (RPL) di SMK Hikmah YAPIS Jayapura. Saya tertarik pada pengembangan web, terutama membuat tampilan yang rapi, cepat, dan mudah digunakan.',
     'Saat ini saya menjalani magang (Praktik Kerja Lapangan) di Pengadilan Militer V-22 Jayapura. Di sana saya belajar disiplin, tanggung jawab, dan bagaimana teknologi membantu pekerjaan administrasi di sebuah instansi.',
   ],
+  // Teks di judul utama yang bergantian diketik dan dihapus (nama dulu, lalu peran).
+  headlineRoles: ['Siswa RPL', 'Frontend Developer', 'MERN Engineer'],
   email: 'dhikadipta81@gmail.com',
   github: 'https://github.com/dhika-icikiwir',
   githubUsername: 'dhika-icikiwir',

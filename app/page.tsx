@@ -74,10 +74,10 @@ function Hero() {
           <p className="mb-4 text-muted-foreground">Portofolio · {profile.location}</p>
           <TypewriterHeading
             id="beranda-judul"
-            className="font-serif text-5xl font-bold leading-tight sm:text-6xl"
-          >
-            {profile.name}
-          </TypewriterHeading>
+            name={profile.name}
+            roles={profile.headlineRoles}
+            className="min-h-[2.5em] font-serif text-5xl font-bold leading-tight sm:min-h-[1.25em] sm:text-6xl"
+          />
           <p className="mt-6 max-w-xl text-lg leading-relaxed">
             Siswa kelas XII Rekayasa Perangkat Lunak di {profile.school}. Sekarang sedang magang di{' '}
             <span className="font-semibold text-primary">
