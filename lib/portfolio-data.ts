@@ -21,7 +21,7 @@ export const profile = {
     'Saat ini saya menjalani magang (Praktik Kerja Lapangan) di Pengadilan Militer V-22 Jayapura. Di sana saya belajar disiplin, tanggung jawab, dan bagaimana teknologi membantu pekerjaan administrasi di sebuah instansi.',
   ],
   // Teks di judul utama yang bergantian diketik dan dihapus (nama dulu, lalu peran).
-  headlineRoles: ['Siswa RPL', 'Frontend Developer', 'MERN Engineer'],
+  headlineRoles: ['Siswa XII RPL', 'Frontend Developer'],
   email: 'dhikadipta81@gmail.com',
   github: 'https://github.com/dhika-icikiwir',
   githubUsername: 'dhika-icikiwir',
